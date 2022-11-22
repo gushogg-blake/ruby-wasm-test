@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+	<head>
+	</head>
+	<body>
+		<script src="tree-sitter.js"></script>
+		<script>
+			TreeSitter.init().then(async function() {
+				let Ruby = await TreeSitter.Language.load("tree-sitter-ruby.wasm");
+				
+				let parser = new TreeSitter();
+				
+				parser.setLanguage(Ruby);
+				
+				parser.parse("test");
+			});
+		</script>
+	</body>
+</html>
